@@ -1,7 +1,7 @@
 from e_invoice.core.utils.constants import ENDPOINTS
 from e_invoice.core.clients.http_client import http_requests
-from e_invoice.authentication.services.schemas.auth_config import OAuth2Credentials
-from e_invoice.authentication.services.tokens.token_store import token_manager
+from e_invoice.factus_api.services.schemas.auth_config import OAuth2Credentials
+from e_invoice.factus_api.services.tokens.token_store import token_manager
 
 
 def authentication() -> dict:
