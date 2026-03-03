@@ -1,0 +1,15 @@
+from e_invoice.core.utils.constants import ENDPOINTS
+from e_invoice.core.clients.http_client import http_requests
+from e_invoice.factus_api.services.schemas.auth_config import OAuth2Credentials
+from e_invoice.factus_api.services.tokens.token_store import token_manager
+
+
+def authentication() -> dict:
+    data = OAuth2Credentials()
+    endpoint = ENDPOINTS["authentication"]["endpoint"]
+    payload = data.payload()
+    header = data.header()
+
+    response = http_requests(method="POST", url=endpoint, data=payload, headers=header)
+
+    token_manager.save_tokens(tokens=response)

@@ -1,0 +1,8 @@
+{
+  "authentication": {
+    "endpoint": "https://api-sandbox.factus.com.co/oauth/token"
+  },
+  "refreshToken": {
+    "endpoint": "https://api-sandbox.factus.com.co/oauth/token"
+  }
+}
