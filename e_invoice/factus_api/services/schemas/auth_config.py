@@ -1,5 +1,6 @@
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from e_invoice.factus_api.services.tokens.token_store import token_manager
 
 
 class OAuth2Credentials(BaseSettings):
@@ -21,3 +22,17 @@ class OAuth2Credentials(BaseSettings):
 
     def header(self):
         return {"Accept": "application/json"}
+
+
+@staticmethod
+class RefreshToken:
+    def payload(self):
+        return {
+            "grant_type": "refresh_token",
+            "client_id": OAuth2Credentials().client_id.get_secret_value(),
+            "client_secret": OAuth2Credentials().client_secret.get_secret_value(),
+            "refresh_token": token_manager._tokens["refresh_token"],
+        }
+
+    def header(self, token):
+        return {"Authorization": f"Bearer {token}", "Accept": "application/json"}
