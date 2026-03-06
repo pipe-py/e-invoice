@@ -4,5 +4,11 @@
   },
   "refreshToken": {
     "endpoint": "https://api-sandbox.factus.com.co/oauth/token"
+  },
+  "catalogs": {
+    "numberingRange": "https://api-sandbox.factus.com.co/v1/numbering-ranges?filter[id]&filter[document]&filter[resolution_number]&filter[technical_key]&filter[is_active]",
+    "municipalities": "https://api-sandbox.factus.com.co/v1/municipalities",
+    "tributes": "https://api-sandbox.factus.com.co/v1/tributes/products?name=",
+    "measurementUnits": "https://api-sandbox.factus.com.co/v1/measurement-units"
   }
 }
