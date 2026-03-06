@@ -1,9 +1,13 @@
+"""Pydantic models that hold OAuth2 configuration and payload builders."""
+
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from e_invoice.factus_api.services.tokens.token_store import token_manager
 
 
 class OAuth2Credentials(BaseSettings):
+    """Read OAuth2 credentials from environment variables."""
+
     user_name: SecretStr
     password: SecretStr
     client_id: SecretStr
@@ -11,7 +15,8 @@ class OAuth2Credentials(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="UTF-8")
 
-    def payload(self):
+    def payload(self) -> dict:
+        """Build the payload for the password grant type."""
         return {
             "grant_type": "password",
             "client_id": self.client_id.get_secret_value(),
@@ -20,13 +25,17 @@ class OAuth2Credentials(BaseSettings):
             "password": self.password.get_secret_value(),
         }
 
-    def header(self):
+    def header(self) -> dict:
+        """Return a simple JSON header for authentication requests."""
         return {"Accept": "application/json"}
 
 
 @staticmethod
 class RefreshToken:
-    def payload(self):
+    """Create payloads and headers to refresh an access token."""
+
+    def payload(self) -> dict:
+        """Build the payload for the refresh token grant type."""
         return {
             "grant_type": "refresh_token",
             "client_id": OAuth2Credentials().client_id.get_secret_value(),
@@ -34,5 +43,6 @@ class RefreshToken:
             "refresh_token": token_manager._tokens["refresh_token"],
         }
 
-    def header(self, token):
+    def header(self, token: str) -> dict:
+        """Return a header that includes the bearer token."""
         return {"Authorization": f"Bearer {token}", "Accept": "application/json"}
