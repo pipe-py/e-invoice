@@ -1,0 +1,125 @@
+{
+    "documentTypes": {
+      "01": "Factura electrónica de venta",
+      "03": "Instrumento electrónico de transmisión - tipo 03"
+    },
+    "operationTypes": {
+      "10": "Estándar",
+      "11": "Mandatos",
+      "12": "Transporte"
+    },
+    "correctionCodes": {
+      "1": "Devolución parcial de los bienes y/o no aceptación parcial del servicio",
+      "2": "Anulación de factura electrónica",
+      "3": "Rebaja o descuento parcial o total",
+      "4": "Ajuste de precio",
+      "5": "Descuento comercial por pronto pago",
+      "6": "Descuento comercial por volumen de ventas"
+    },
+    "creditNoteOperationTypes": {
+      "20": "Nota Crédito que referencia una factura electrónica",
+      "22": "Nota Crédito sin referencia a una factura electrónica"
+    },
+    "productIdentificationStandards": {
+      "1": "Estándar de adopción del contribuyente",
+      "2": "UNSPSC",
+      "3": "Partida Arancelaria",
+      "4": "GTIN"
+    },
+    "claimConceptCodes": {
+      "01": "Documento con inconsistencias",
+      "02": "Mercancía no entregada totalmente",
+      "03": "Mercancía no entregada parcialmente",
+      "04": "Servicio no prestado"
+    },
+    "eventCodes": {
+      "030": "Acuse de recibo de Factura Electrónica de Venta",
+      "031": "Reclamo de la Factura Electrónica de Venta",
+      "032": "Recibo del bien y/o prestación del servicio",
+      "033": "Aceptación expresa",
+      "034": "Aceptación tácita"
+    },
+    "identityDocumentTypes": {
+      "1": "Registro civil",
+      "2": "Tarjeta de identidad",
+      "3": "Cédula de ciudadanía",
+      "4": "Tarjeta de extranjería",
+      "5": "Cédula de extranjería",
+      "6": "NIT",
+      "7": "Pasaporte",
+      "8": "Documento de identificación extranjero",
+      "9": "PEP",
+      "10": "NIT otro país",
+      "11": "NUIP"
+    },
+    "customerTaxTypes": {
+      "18": {
+        "code": "01",
+        "name": "IVA"
+      },
+      "21": {
+        "code": "ZZ",
+        "name": "No aplica"
+      }
+    },
+    "organizationTypes": {
+      "1": "Persona Jurídica",
+      "2": "Persona Natural"
+    },
+    "paymentMethods": {
+      "10": "Efectivo",
+      "42": "Consignación",
+      "20": "Cheque",
+      "47": "Transferencia",
+      "71": "Bonos",
+      "72": "Vales",
+      "1": "Medio de pago no definido",
+      "49": "Tarjeta Débito",
+      "48": "Tarjeta Crédito",
+      "ZZZ": "Otro"
+    },
+    "paymentForms": {
+      "1": "Pago de contado",
+      "2": "Pago a crédito"
+    },
+    "numberingRangeDocumentTypes": {
+      "21": "Factura de Venta",
+      "22": "Nota Crédito",
+      "23": "Nota Débito",
+      "24": "Documento Soporte",
+      "25": "Nota de Ajuste Documento Soporte",
+      "26": "Nómina",
+      "27": "Nota de Ajuste Nómina",
+      "28": "Nota de eliminación de nómina",
+      "30": "Factura de talonario y de papel"
+    },
+    "supportDocumentIdentityTypes": {
+      "4": "Tarjeta de extranjería",
+      "5": "Cédula de extranjería",
+      "6": "NIT",
+      "7": "Pasaporte",
+      "8": "Documento de identificación extranjero",
+      "9": "PEP",
+      "10": "NIT otro país"
+    },
+    "adjustmentReasons": {
+      "1": "Devolución parcial de los bienes y/o no aceptación parcial del servicio",
+      "2": "Anulación del documento soporte en adquisiciones efectuadas a sujetos no obligados a expedir factura de venta o documento equivalente",
+      "3": "Rebaja o descuento parcial o total",
+      "4": "Ajuste de precio",
+      "5": "Otros"
+    },
+    "discountChargeCodes": {
+      "00": "Descuento no condicionado",
+      "01": "Descuento condicionado",
+      "02": "Recargo no condicionado",
+      "03": "Recargo condicionado"
+    },
+    "taxResponsibilities": {
+      "O-13": "Gran contribuyente",
+      "O-15": "Autorretenedor",
+      "O-23": "Agente de retención de IVA",
+      "O-47": "Régimen simple de tributación",
+      "R-99-PN": "No responsable"
+    }
+  }
