@@ -3,7 +3,7 @@ from django.db import models
 
 class Customer(models.Model):
     identification = models.CharField(
-        max_length=20, unique=True, verbose_name="Identificación"
+        max_length=20, unique=True, verbose_name="Identificación * "
     )
     dv = models.PositiveSmallIntegerField(
         null=True, blank=True, verbose_name="Dígito de verificación"
@@ -27,12 +27,25 @@ class Customer(models.Model):
         max_length=20, null=True, blank=True, verbose_name="Teléfono"
     )
     legal_organization_id = models.PositiveIntegerField(
-        verbose_name="Tipo de Organización Legal"
+        verbose_name="Tipo de Organización Legal * "
     )
-    tribute_id = models.PositiveIntegerField(verbose_name="Responsabilidad Tributaria")
+    tribute_id = models.PositiveIntegerField(
+        verbose_name="Responsabilidad Tributaria * "
+    )
     identification_document_id = models.PositiveIntegerField(
-        verbose_name="Tipo de Documento"
+        verbose_name="Tipo de Documento *"
     )
     municipality_id = models.PositiveIntegerField(
         null=True, blank=True, verbose_name="Municipio"
     )
+
+    def __str__(self):
+        if self.company:
+            if self.trade_name:
+                return f"{self.company} ({self.trade_name}) - {self.identification}"
+            return f"{self.company} - {self.identification}"
+
+        if self.names:
+            return f"{self.names} - {self.identification}"
+
+        return str(self.identification)
