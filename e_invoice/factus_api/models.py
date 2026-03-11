@@ -78,6 +78,9 @@ class Items(models.Model):
     code = models.CharField(max_length=200, verbose_name="Código")
     withholding_tax_rate = models.FloatField(verbose_name="Porcentaje de retención")
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = "Item"
         verbose_name_plural = "Items"
