@@ -52,11 +52,32 @@ class Customer(models.Model):
 
 
 class Establishment(models.Model):
-    name = models.CharField(verbose_name="Nombre",max_length=200)
-    address = models.CharField(verbose_name="Dirección",max_length=200)
+    name = models.CharField(verbose_name="Nombre", max_length=200)
+    address = models.CharField(verbose_name="Dirección", max_length=200)
     phone_number = models.CharField(verbose_name="Teléfono", max_length=20)
     email = models.EmailField(verbose_name="Email", max_length=200)
     municipality_id = models.PositiveIntegerField(verbose_name="Municipio")
 
     def __str__(self):
         return self.name
+
+
+class Items(models.Model):
+    code_reference = models.CharField(
+        max_length=200, unique=True, verbose_name="Código de Referencia"
+    )
+    name = models.CharField(max_length=200, verbose_name="Nombre")
+    quantity = models.PositiveIntegerField(verbose_name="Cantidad")
+    discount_rate = models.FloatField(verbose_name="Tasa de descuento", default=0.0)
+    price = models.FloatField(verbose_name="Precio")
+    tax_rate = models.CharField(max_length=50, verbose_name="Tasa de Impuesto")
+    unit_measure_id = models.PositiveBigIntegerField(verbose_name="Unidad de Medida")
+    standard_code_id = models.PositiveIntegerField(verbose_name="Código Estándar")
+    is_excluded = models.PositiveIntegerField(verbose_name="Excluido")
+    tribute_id = models.PositiveIntegerField(verbose_name="Tributo")
+    code = models.CharField(max_length=200, verbose_name="Código")
+    withholding_tax_rate = models.FloatField(verbose_name="Porcentaje de retención")
+
+    class Meta:
+        verbose_name = "Item"
+        verbose_name_plural = "Items"
